@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="Blue">#4e92df</color>
+    <color name="Blue_Darker">#0065ad</color>
+    <color name="Red">#ce0a24</color>
+    <color name="Red_Darker">#950000</color>
+    <color name="Black">#FF000000</color>
+    <color name="Grey">#b4b4b4</color>
+    <color name="White">#FFFFFFFF</color>
+    <color name="Black_Darker">#1e1e20</color>
+    <color name="Black_Dark">#222224</color>
+    <color name="Black_Medium">#272728</color>
+    <color name="Black_Light">#2a2a2b</color>
+    <color name="Black_Lighter">#303030</color>
+    <color name="Green_forCircle">#aeceb8</color>
+    <color name="Beige_forCircle">#edd9d0</color>
+    <color name="Blue_forCircle">#A6C6CF</color>
+    <color name="Yellow_forCircle">#E4DBA6</color>
+    <color name="Grey_forCircle">#AFAFAF</color>
+</resources>

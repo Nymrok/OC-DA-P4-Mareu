@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Ma Réu</string>
+    <string name="appbar_title">Ma réu</string>
+
+    <!-- Buttons Descriptions -->
+    <string name="create_event_button_description">Create a new meeting</string>
+    <string name="filter_button_description">Reorganize</string>
+    <string name="back_button_description">Return to previous page</string>
+    <string name="save_button_description">Return to previous page</string>
+
+    <!-- Fragment : Meeting -->
+    <string name="meeting_picture_description">Color of this meeting</string>
+    <string name="delete_button_description">Delete this meeting</string>
+
+    <!-- Activity : Add Meeting -->
+    <string name="addActivity_title_text">Meeting Creation</string>
+    <string name="addActivity_name_input">Name</string>
+    <string name="addActivity_date_input">Date</string>
+    <string name="addActivity_hour_input">Hour</string>
+    <string name="addActivity_room_input">Room</string>
+    <string name="addActivity_members_input">Members</string>
+    <string name="addActivity_save_button">Save</string>
+</resources>
