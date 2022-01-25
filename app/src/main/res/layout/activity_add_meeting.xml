@@ -10,87 +10,71 @@
             android:layout_height="wrap_content"
             android:padding="16dp" >
 
-            <TextView
-                android:id="@+id/addActivity_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:text="@string/addActivity_title_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <RelativeLayout
                 android:id="@+id/form_colorPicker"
                 style="?attr/materialButtonToggleGroupStyle"
                 app:singleSelection="true"
                 app:selectionRequired="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/addActivity_title"
+                android:layout_marginTop="@dimen/P1"
+                android:layout_marginStart="@dimen/P2"
+                android:layout_marginEnd="@dimen/P2"
+                android:layout_marginBottom="@dimen/P1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" >
 
                 <Button
                     android:id="@+id/form_colorPicker_beige"
                     style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="@dimen/addActivity_colorPicks"
-                    android:layout_height="@dimen/addActivity_colorPicks"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/Beige_forCircle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    android:layout_height="@dimen/addActivity_colorPick_height"
+                    android:layout_width="@dimen/addActivity_colorPick_width"
+                    android:layout_marginEnd="@dimen/P1"
+                    android:layout_alignParentStart="true"
+                    android:backgroundTint="@color/Beige_forCircle" />
 
                 <Button
                     android:id="@+id/form_colorPicker_green"
                     style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="@dimen/addActivity_colorPicks"
-                    android:layout_height="@dimen/addActivity_colorPicks"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/Green_forCircle"
-                    app:layout_constraintStart_toEndOf="@+id/form_colorPicker_beige"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    android:layout_height="@dimen/addActivity_colorPick_height"
+                    android:layout_width="@dimen/addActivity_colorPick_width"
+                    android:layout_marginStart="@dimen/P1"
+                    android:layout_marginEnd="@dimen/P1"
+                    android:layout_toEndOf="@id/form_colorPicker_beige"
+                    android:backgroundTint="@color/Green_forCircle" />
 
                 <Button
                     android:id="@+id/form_colorPicker_blue"
                     style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="@dimen/addActivity_colorPicks"
-                    android:layout_height="@dimen/addActivity_colorPicks"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/Blue_forCircle"
-                    app:layout_constraintStart_toEndOf="@+id/form_colorPicker_green"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    android:layout_height="@dimen/addActivity_colorPick_height"
+                    android:layout_width="@dimen/addActivity_colorPick_width"
+                    android:layout_marginStart="@dimen/P1"
+                    android:layout_marginEnd="@dimen/P1"
+                    android:layout_toEndOf="@id/form_colorPicker_green"
+                    android:backgroundTint="@color/Blue_forCircle" />
 
                 <Button
                     android:id="@+id/form_colorPicker_yellow"
                     style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="@dimen/addActivity_colorPicks"
-                    android:layout_height="@dimen/addActivity_colorPicks"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/Yellow_forCircle"
-                    app:layout_constraintStart_toEndOf="@+id/form_colorPicker_blue"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    android:layout_height="@dimen/addActivity_colorPick_height"
+                    android:layout_width="@dimen/addActivity_colorPick_width"
+                    android:layout_marginStart="@dimen/P1"
+                    android:layout_marginEnd="@dimen/P1"
+                    android:layout_toEndOf="@id/form_colorPicker_blue"
+                    android:backgroundTint="@color/Yellow_forCircle" />
 
                 <Button
                     android:id="@+id/form_colorPicker_grey"
                     style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="@dimen/addActivity_colorPicks"
-                    android:layout_height="@dimen/addActivity_colorPicks"
-                    android:layout_marginStart="16dp"
-                    android:backgroundTint="@color/Grey_forCircle"
-                    app:layout_constraintStart_toEndOf="@+id/form_colorPicker_yellow"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    android:layout_height="@dimen/addActivity_colorPick_height"
+                    android:layout_width="@dimen/addActivity_colorPick_width"
+                    android:layout_marginStart="@dimen/P1"
+                    android:layout_toEndOf="@id/form_colorPicker_yellow"
+                    android:backgroundTint="@color/Grey_forCircle" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/form_name"
