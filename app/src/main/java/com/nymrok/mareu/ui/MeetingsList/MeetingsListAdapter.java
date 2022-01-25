@@ -58,13 +58,10 @@ public class MeetingsListAdapter extends ListAdapter<MeetingsViewStateItem, Meet
             String title = item.getName() + " - " + item.getHour() + " - " + item.getRoom();
             mMeetingTitle.setText(title);
 
-            mMeetingContent.setText(TextUtils.join
-                (", ", new String[]
-                    {
-                        item.getMembers().toString()
-                    }
-                )
-            );
+            String content = TextUtils.join(", ", new String[]{item.getMembers().toString()});
+            content = content.replace("[","");
+            content = content.replace("]","");
+            mMeetingContent.setText(content);
 
             mMeetingDeleteBtn.setOnClickListener(v -> listener.onDeleteMeetingClicked(item.getId()));
 

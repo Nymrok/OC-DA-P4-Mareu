@@ -62,7 +62,7 @@ public class AddMeetingActivity extends AppCompatActivity {
             mThisMeetingName = String.valueOf(mNameInput.getText());
             mThisMeetingHour = Objects.requireNonNull(mHourInput.getText()).toString();
             mThisMeetingRoom = Objects.requireNonNull(mRoomInput.getText()).toString();
-            mThisMeetingMembers = Arrays.asList(Objects.requireNonNull(mMembersInput.getText()).toString().split(", "));
+            mThisMeetingMembers = Arrays.asList(Objects.requireNonNull(mMembersInput.getText()).toString().split("\\s|,"));
 
             viewModel.SaveBtnClicked(mThisMeetingColor, mThisMeetingName, mThisMeetingHour, mThisMeetingRoom, mThisMeetingMembers);
             finish();
