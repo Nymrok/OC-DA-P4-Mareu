@@ -10,15 +10,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.nymrok.mareu.R;
 import com.nymrok.mareu.injections.ViewModelFactory;
-import com.nymrok.mareu.models.Meeting;
-import com.nymrok.mareu.ui.MeetingsList.MeetingsListViewModel;
 
 import java.util.Arrays;
 import java.util.List;
