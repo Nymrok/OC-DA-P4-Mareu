@@ -22,11 +22,7 @@ import java.util.Objects;
 
 public class AddMeetingActivity extends AppCompatActivity {
 
-    private String mThisMeetingColor;
-    private String mThisMeetingName;
-    private String mThisMeetingHour;
-    private String mThisMeetingRoom;
-    private List<String> mThisMeetingMembers;
+    private String mColorInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,40 +42,45 @@ public class AddMeetingActivity extends AppCompatActivity {
         TextInputEditText mMembersInput = findViewById(R.id.form_members_input);
         Button mSaveBtn = findViewById(R.id.save_button);
 
-        mThisMeetingColor = "Grey";
-        mBeigeColorBtn.setOnClickListener(v -> mThisMeetingColor = "Beige");
-        mGreenColorBtn.setOnClickListener(v -> mThisMeetingColor = "Green");
-        mBlueColorBtn.setOnClickListener(v -> mThisMeetingColor = "Blue");
-        mYellowColorBtn.setOnClickListener(v -> mThisMeetingColor = "Yellow");
-        mGreyColorBtn.setOnClickListener(v -> mThisMeetingColor = "Grey");
+        mColorInput = "Grey";
+        mBeigeColorBtn.setOnClickListener(v -> mColorInput = "Beige");
+        mGreenColorBtn.setOnClickListener(v -> mColorInput = "Green");
+        mBlueColorBtn.setOnClickListener(v -> mColorInput = "Blue");
+        mYellowColorBtn.setOnClickListener(v -> mColorInput = "Yellow");
+        mGreyColorBtn.setOnClickListener(v -> mColorInput = "Grey");
 
-        mSaveBtn.setOnClickListener(v -> {
+        checkName(viewModel, mNameInput);
+        addButton(viewModel, mColorInput, mNameInput, mHourInput, mRoomInput, mMembersInput, mSaveBtn);
 
-            mThisMeetingName = String.valueOf(mNameInput.getText());
-            mThisMeetingHour = Objects.requireNonNull(mHourInput.getText()).toString();
-            mThisMeetingRoom = Objects.requireNonNull(mRoomInput.getText()).toString();
-            mThisMeetingMembers = Arrays.asList(Objects.requireNonNull(mMembersInput.getText()).toString().split("\\s|,"));
+        viewModel.getCloseActivitySingleLiveEvent().observe(this, aVoid -> finish());
+    }
 
-            viewModel.SaveBtnClicked(mThisMeetingColor, mThisMeetingName, mThisMeetingHour, mThisMeetingRoom, mThisMeetingMembers);
-            finish();
-        });
-
+    private void checkName(AddMeetingViewModel viewModel, TextInputEditText mNameInput) {
         mNameInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.length() > 0) {
-                    mSaveBtn.setEnabled(true);
-                    mSaveBtn.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(206, 10, 36)));
-                } else {
-                    mSaveBtn.setEnabled(false);
-                    mSaveBtn.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(180, 180, 180)));
-                }
+                viewModel.onNameChanged(s.toString());
             }
         });
+    }
+
+    private void addButton(AddMeetingViewModel viewModel, String mColorInput, TextInputEditText mNameInput, TextInputEditText mHourInput, TextInputEditText mRoomInput, TextInputEditText mMembersInput, Button mSaveBtn) {
+        mSaveBtn.setOnClickListener(v -> viewModel.SaveBtnClicked(
+            mColorInput,
+            Objects.requireNonNull(mNameInput.getText()).toString(),
+            Objects.requireNonNull(mHourInput.getText()).toString(),
+            Objects.requireNonNull(mRoomInput.getText()).toString(),
+            Arrays.asList(Objects.requireNonNull(mMembersInput.getText()).toString().split("\\s|,"))
+        ));
+        viewModel.getIsSaveButtonEnabledLiveData().observe(this, mSaveBtn::setEnabled);
     }
 
     public static Intent navigate(Context context) {
